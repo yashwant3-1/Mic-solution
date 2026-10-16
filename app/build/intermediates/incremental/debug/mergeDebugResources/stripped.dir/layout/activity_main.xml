@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_dark">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <!-- App Header -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="20dp">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_mic"
+                    app:tint="@color/primary_light"
+                    android:background="@drawable/bg_card"
+                    android:padding="8dp"
+                    android:contentDescription="@string/app_name" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginStart="14dp">
+
+                    <TextView
+                        android:id="@+id/tvAppTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/title_app_bar"
+                        android:textColor="@color/text_primary"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvAppSubtitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/subtitle_app_bar"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <!-- Streaming active indicator dot -->
+                <TextView
+                    android:id="@+id/tvStreamBadge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="STANDBY"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_muted"
+                    android:background="@drawable/bg_card"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="5dp" />
+            </LinearLayout>
+
+            <!-- Card 1: Bluetooth Audio Receiver -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="@color/surface_card"
+                android:layout_marginBottom="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <ImageView
+                            android:layout_width="22dp"
+                            android:layout_height="22dp"
+                            android:src="@drawable/ic_bluetooth"
+                            app:tint="@color/primary_light"
+                            android:contentDescription="@string/section_bluetooth_receiver" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:text="@string/section_bluetooth_receiver"
+                            android:textColor="@color/text_primary"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/label_select_device"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="12sp" />
+
+                    <!-- Spinner for paired BT devices -->
+                    <Spinner
+                        android:id="@+id/spinnerPairedDevices"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginTop="6dp"
+                        android:background="@drawable/bg_card"
+                        android:popupBackground="@color/surface_card_light" />
+
+                    <!-- Status Display -->
+                    <LinearLayout
+                        android:id="@+id/containerBtStatus"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginTop="12dp"
+                        android:padding="10dp"
+                        android:background="@drawable/badge_disconnected">
+
+                        <View
+                            android:id="@+id/viewBtStatusDot"
+                            android:layout_width="10dp"
+                            android:layout_height="10dp"
+                            android:background="@color/status_red" />
+
+                        <TextView
+                            android:id="@+id/tvBtStatus"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="10dp"
+                            android:text="@string/status_bt_disconnected"
+                            android:textColor="@color/text_primary"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+
+                    <!-- Bluetooth Action Buttons -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="12dp">
+
+                        <Button
+                            android:id="@+id/btnConnectBt"
+                            android:layout_width="0dp"
+                            android:layout_height="44dp"
+                            android:layout_weight="1"
+                            android:text="@string/btn_connect_bt"
+                            android:textSize="13sp"
+                            android:textAllCaps="false"
+                            android:backgroundTint="@color/primary_sky"
+                            android:textColor="@color/text_primary"
+                            app:cornerRadius="10dp" />
+
+                        <Button
+                            android:id="@+id/btnBtSettings"
+                            android:layout_width="0dp"
+                            android:layout_height="44dp"
+                            android:layout_weight="1"
+                            android:layout_marginStart="10dp"
+                            android:text="@string/btn_open_bt_settings"
+                            android:textSize="13sp"
+                            android:textAllCaps="false"
+                            android:backgroundTint="@color/surface_card_light"
+                            android:textColor="@color/text_secondary"
+                            app:cornerRadius="10dp" />
+                    </LinearLayout>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Card 2: Audio Input Source (Collar Mic) -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="@color/surface_card"
+                android:layout_marginBottom="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <ImageView
+                            android:layout_width="22dp"
+                            android:layout_height="22dp"
+                            android:src="@drawable/ic_headset"
+                            app:tint="@color/primary_light"
+                            android:contentDescription="@string/section_mic_source" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:text="@string/section_mic_source"
+                            android:textColor="@color/text_primary"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <!-- Mic Source Status Badge -->
+                    <LinearLayout
+                        android:id="@+id/containerMicStatus"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginTop="12dp"
+                        android:padding="10dp"
+                        android:background="@drawable/badge_warning">
+
+                        <View
+                            android:id="@+id/viewMicStatusDot"
+                            android:layout_width="10dp"
+                            android:layout_height="10dp"
+                            android:background="@color/status_amber" />
+
+                        <TextView
+                            android:id="@+id/tvMicStatus"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="10dp"
+                            android:text="@string/status_mic_builtin"
+                            android:textColor="@color/text_primary"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+
+                    <!-- Live VU Level Meter -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="14dp"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/label_input_level"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/tvAudioLevel"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="end"
+                            android:text="0 dB"
+                            android:textColor="@color/primary_light"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <ProgressBar
+                        android:id="@+id/progressAudioLevel"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="10dp"
+                        android:layout_marginTop="6dp"
+                        android:max="100"
+                        android:progress="0"
+                        android:progressTint="@color/status_green"
+                        android:progressBackgroundTint="@color/progress_bg" />
+
+                    <!-- Mic Gain / Boost Control -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="14dp"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/label_mic_gain"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/tvGainValue"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="end"
+                            android:text="1.0x"
+                            android:textColor="@color/text_primary"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                    <SeekBar
+                        android:id="@+id/seekMicGain"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:max="30"
+                        android:progress="10"
+                        android:progressTint="@color/primary_sky"
+                        android:thumbTint="@color/primary_light" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Main Streaming Control Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnToggleMic"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/btn_start_mic"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textAllCaps="false"
+                app:icon="@drawable/ic_mic"
+                app:iconGravity="textStart"
+                app:iconPadding="10dp"
+                app:iconSize="26dp"
+                app:iconTint="@color/text_primary"
+                android:backgroundTint="@color/primary_sky"
+                android:textColor="@color/text_primary"
+                app:cornerRadius="18dp" />
+
+            <!-- Streaming Status Text -->
+            <TextView
+                android:id="@+id/tvStreamingStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="@string/status_idle"
+                android:textColor="@color/text_secondary"
+                android:textSize="13sp"
+                android:gravity="center"
+                android:lineSpacingExtra="3dp" />
+
+            <!-- Technical Diagnostics / Guide Section -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="@color/surface_card"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Audio Engine Diagnostics"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvDiagnostics"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="Audio format: 48,000 Hz, 16-bit PCM Mono\nLatency target: Low Latency Hardware Burst\nInput: Auto-routing (Prioritize 3.5mm TRRS Mic)\nOutput: Bluetooth A2DP Sink (AudioTrack Media Route)"
+                        android:textColor="@color/text_muted"
+                        android:textSize="11sp"
+                        android:lineSpacingExtra="3dp"
+                        android:fontFamily="monospace" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginVertical="10dp"
+                        android:background="@color/card_stroke" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Hardware Connection Tip:\nCollar microphones use either a 3-pole (TRS) or 4-pole (TRRS) 3.5mm plug. Standard smartphone 3.5mm audio jacks require a 4-pole TRRS connector to capture microphone input. If using a camera lapel mic (TRS), plug in a TRS-to-TRRS adapter."
+                        android:textColor="@color/text_secondary"
+                        android:textSize="11sp"
+                        android:lineSpacingExtra="2dp" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

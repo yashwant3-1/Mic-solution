@@ -1,0 +1,42 @@
+[
+    {
+        "merged": "com.wirelesscollarmic.app-merged_res-33:/drawable_badge_warning.xml.flat",
+        "source": "com.wirelesscollarmic.app-main-35:/drawable/badge_warning.xml"
+    },
+    {
+        "merged": "com.wirelesscollarmic.app-merged_res-33:/drawable_ic_mic.xml.flat",
+        "source": "com.wirelesscollarmic.app-main-35:/drawable/ic_mic.xml"
+    },
+    {
+        "merged": "com.wirelesscollarmic.app-merged_res-33:/drawable_ic_headset.xml.flat",
+        "source": "com.wirelesscollarmic.app-main-35:/drawable/ic_headset.xml"
+    },
+    {
+        "merged": "com.wirelesscollarmic.app-merged_res-33:/drawable_bg_card.xml.flat",
+        "source": "com.wirelesscollarmic.app-main-35:/drawable/bg_card.xml"
+    },
+    {
+        "merged": "com.wirelesscollarmic.app-merged_res-33:/layout_activity_main.xml.flat",
+        "source": "com.wirelesscollarmic.app-main-35:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.wirelesscollarmic.app-merged_res-33:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "com.wirelesscollarmic.app-main-35:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "com.wirelesscollarmic.app-merged_res-33:/drawable_badge_disconnected.xml.flat",
+        "source": "com.wirelesscollarmic.app-main-35:/drawable/badge_disconnected.xml"
+    },
+    {
+        "merged": "com.wirelesscollarmic.app-merged_res-33:/drawable_badge_connected.xml.flat",
+        "source": "com.wirelesscollarmic.app-main-35:/drawable/badge_connected.xml"
+    },
+    {
+        "merged": "com.wirelesscollarmic.app-merged_res-33:/drawable_ic_bluetooth.xml.flat",
+        "source": "com.wirelesscollarmic.app-main-35:/drawable/ic_bluetooth.xml"
+    },
+    {
+        "merged": "com.wirelesscollarmic.app-merged_res-33:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.wirelesscollarmic.app-main-35:/mipmap-anydpi-v26/ic_launcher.xml"
+    }
+]

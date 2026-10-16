@@ -1,0 +1,42 @@
+<resources>
+    <string name="app_name">Wireless Collar Mic</string>
+    <string name="title_app_bar">Wireless Collar Mic</string>
+    <string name="subtitle_app_bar">3.5mm Lapel Mic to Bluetooth Receiver</string>
+
+    <!-- Bluetooth Receiver Section -->
+    <string name="section_bluetooth_receiver">Bluetooth Audio Receiver</string>
+    <string name="label_select_device">Select Paired Receiver</string>
+    <string name="no_paired_devices">No paired Bluetooth audio receivers found</string>
+    <string name="status_bt_disconnected">Disconnected</string>
+    <string name="status_bt_connected">Connected (A2DP Audio Output)</string>
+    <string name="status_bt_connecting">Connecting…</string>
+    <string name="status_bt_unavailable">Bluetooth Unavailable / Off</string>
+    <string name="btn_connect_bt">Connect</string>
+    <string name="btn_open_bt_settings">Bluetooth Settings</string>
+
+    <!-- Microphone Source Section -->
+    <string name="section_mic_source">Audio Input Source</string>
+    <string name="status_mic_external">3.5mm External Collar Mic (Preferred)</string>
+    <string name="status_mic_builtin">Built-in Microphone (Collar Mic Not Detected)</string>
+    <string name="label_input_level">Live Input Level</string>
+    <string name="label_mic_gain">Mic Boost / Gain</string>
+
+    <!-- Stream Controls -->
+    <string name="btn_start_mic">Start MIC</string>
+    <string name="btn_stop_mic">Stop MIC</string>
+    <string name="status_idle">Ready to stream. Select a receiver and press Start MIC.</string>
+    <string name="status_streaming">Streaming live audio from collar mic to Bluetooth…</string>
+    <string name="status_error">Audio streaming error occurred.</string>
+
+    <!-- Permissions -->
+    <string name="permission_title">Permissions Required</string>
+    <string name="permission_description">Wireless Collar Mic needs Microphone access to capture live audio and Bluetooth permissions to discover and route to your Bluetooth audio receiver.</string>
+    <string name="permission_grant_btn">Grant Permissions</string>
+
+    <!-- Service Notification -->
+    <string name="notification_channel_name">Wireless Mic Streaming</string>
+    <string name="notification_channel_desc">Active audio streaming from collar mic to Bluetooth</string>
+    <string name="notification_title">Wireless Collar Mic Active</string>
+    <string name="notification_content">Streaming audio to Bluetooth receiver…</string>
+    <string name="action_stop_streaming">Stop</string>
+</resources>
